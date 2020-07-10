@@ -1,0 +1,509 @@
+
+
+// SCSS Work.
+$font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$neumorphic: 8px 8px 4px #1b1b1bb6;
+$neumorphicGallery: 8px 8px 4px #1b1b1bb6;
+$specialtyTitlesMargin: 35px;
+$specialtyTitlesMarginQuery: 15px;
+%boxshadow{
+    box-shadow: $neumorphic;
+}
+%textshadow{
+    text-shadow: 5px 5px 5px #2e2e2e, 
+ }
+ %insidebox{
+     align-items: center;
+     justify-items: center;
+     font-family: $font;
+     font-size: 23px;
+     text-align: center;
+ }
+ %skemclub{
+    border-right: 5px solid white;
+    border-bottom: 5px solid white;
+    border-top: 8px solid #89cff2;
+    border-left: 8px solid #89cff2;
+ }
+@mixin appearBox($time){
+    animation: appearBoxAnimation backwards ease-out;
+    animation-duration: 0.8s;
+    animation-delay: $time;
+}
+@mixin appearImage($time){
+    animation: appearBoxAnimation backwards ease-out;
+    animation-duration: $time;
+}
+@mixin appearText($duration){
+    animation: appearTextAnimation backwards ease-out;
+    animation-duration: $duration;
+}
+@mixin appearTextQuery($duration){
+    animation: appearTextAnimationQuery backwards ease-out;
+    animation-duration: $duration;
+}
+ 
+// Keyframes
+@keyframes appearBoxAnimation {
+    from{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes appearTextAnimation {
+    from{
+        opacity: 0;
+        margin-left: $specialtyTitlesMargin - ($specialtyTitlesMargin + 15px);
+    }to{
+        opacity: 1;
+        margin-left: $specialtyTitlesMargin;
+    }
+}
+@keyframes appearTextAnimationQuery {
+    from{
+        opacity: 0;
+        margin-top: $specialtyTitlesMarginQuery - ($specialtyTitlesMarginQuery + 5px);
+    }to{
+        opacity: 1;
+        margin-top: $specialtyTitlesMarginQuery;
+    }
+}
+@keyframes appearButton{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+@keyframes fadeText{
+    from{
+        opacity: 1;
+    }to{
+        opacity: 0
+    }
+}
+
+// Image cashing
+#backgroundCashing{
+    opacity: 0;
+    position: absolute;
+    margin-left: -3000px;
+    margin-top: -3000px;
+}
+#bg0 { background-image: url("./backgrounds/0.png")}
+#bg1 { background-image: url("./backgrounds/1.png")}
+#bg2 { background-image: url("./backgrounds/2.png")}
+#bg3 { background-image: url("./backgrounds/3.png")}
+#bg4 { background-image: url("./backgrounds/4.png")}
+#bg5 { background-image: url("./backgrounds/5.png")}
+#bg6 { background-image: url("./backgrounds/6.png")}
+
+
+// Global and general.
+html, *{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("./backgrounds/general.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+// Styles.
+.bB2{
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.new{
+    text-align: center;
+}
+.oldContainer{
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.oldName{
+    text-align: center;
+    @extend %textshadow;
+    color: white;
+    font-family: $font;
+    font-size: 92px;
+    font-weight: 400;
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+.oldContainer{
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3; 
+}
+.old{
+    max-width: 400px;
+    box-shadow: $neumorphicGallery; 
+    border-radius: 15px;
+    max-height: 700px;
+}
+.madeByContainer{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+    animation: fadeText 0.3s forwards;
+    animation-delay: 3s;
+}
+#pagetitle{
+    @extend %textshadow;
+    color: white;
+    font-family: $font;
+    font-size: 92px;
+    font-weight: 400;
+    margin-top: 30px;
+    text-align: center;
+}
+.loading{
+    text-align: center;
+    margin-top: 30vh;
+    font-family: $font;
+    color: white;
+    font-size: 94px;
+    animation: fadeText 0.3s forwards;
+    animation-delay: 1s;
+    @extend %textshadow;
+}
+.disclaimer{
+    text-align: center;
+    margin-top: 30vh;
+    @extend %boxshadow;
+    font-family: $font;
+    color: black;
+    font-size: 46px;
+    animation: fadeText 0.3s forwards;
+    animation-delay: 7.5s;
+    background-color: white;
+    padding: 15px;
+}
+.madeBy{
+    background-color: white;
+    text-align: center;
+    @extend %boxshadow;
+    font-family: $font;
+    color: black;
+    font-size: 46px;
+    margin-top: 30vh;
+    padding: 15px;
+}
+.support{
+    color: black;
+    font-family: $font;
+    font-size: 32px;
+
+}
+.support:hover{
+    cursor: pointer;
+    font-weight: 600;
+
+}
+#supportContainer{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.madeBy > span{
+    font-size: 26px;
+}
+.specialtyName{
+    @extend %textshadow;
+    font-family: $font;
+    font-size: 68px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-left: $specialtyTitlesMargin;
+    @include appearText(0.5s);
+    animation-delay: 1s;
+}
+.bB1{
+    opacity: 0;
+    margin-left: 25px;
+    float: right;
+    margin-top: 30px;
+    margin-right: 65px;
+    animation: appearButton 2s forwards;
+    animation-delay: 0.5s;
+}
+.backButtonStyle{
+    font-size: 25px;
+    box-shadow: $neumorphicGallery;
+    padding:10px 25px 10px 25px;
+    border-radius: 25px;
+    background-color: white;
+    border: 2px white;
+    transition: 0.3s ease-in;
+}
+#imagesGrid{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    justify-items: center;
+    align-items: center;
+    grid-gap: 35px;
+    margin: 5px;
+    margin-top: 35px;
+}
+.backButtonStyle:hover{
+    cursor: pointer;
+}
+.backButtonStyle:focus{
+    outline: none;
+    padding:10px 20px 10px 20px;
+}
+.personNameGallery{
+    text-align: center;
+    @include appearTextQuery(0.8s);
+    margin-top: 12px;
+    font-size: 26px;
+    margin-bottom: 0px;
+    font-family: $font;
+    font-weight: 400;
+}
+.personImageGallery{
+    box-shadow: $neumorphicGallery; 
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    @include appearImage(0.5s);
+    transition: 0.3s ease-in;
+}
+.personImageOld{
+    box-shadow: $neumorphicGallery; 
+    border-radius: 15px;
+    width: 300px;
+    height: 300px;
+}
+.personImageGallery:hover{
+    cursor: pointer;
+    border: 1px solid white;
+}
+#madeby{
+    margin: 0;
+    text-align: center;
+    font-family: $font;
+    font-size: 28px;
+    span{
+        font-weight: bold;
+    }
+} 
+#item1{ 
+    display: grid;
+    font-family: $font;
+    @extend %insidebox;
+    color: white;
+    background-color: #6D6D6D;
+    @include appearBox(0.5s);
+}
+#item2{
+    display: grid;
+    color: white;
+    font-family: $font;
+    background-color: #000000;
+    @extend %insidebox;
+    @include appearBox(0.2s);
+}
+#item3{
+    display: grid;
+    font-family: $font;
+    background-color: #005DFF;
+    grid-column-start: 3;
+    @include appearBox(0.3s);
+    @extend %insidebox;
+    grid-column-end: 5;
+    color: white;
+}
+#item4{
+    display: grid;
+    font-family: $font;
+    background-color: #770000;
+    @include appearBox(0.1s);
+    @extend %insidebox;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    color: white;
+}
+#item5{
+    display: grid;
+    font-family: $font;
+    background-color: #FFFFFF;
+    @include appearBox(0.4s);
+    @extend %insidebox;
+    color: black;
+}
+#item6{
+    display: grid;
+    font-family: $font;
+    background-color: #36DDFF;
+    @extend %insidebox;
+    @include appearBox(0s);
+    grid-column-start: 2;
+    grid-column-end: 4;
+    color: white;
+}
+#item7{
+    display: grid;
+    font-family: $font;
+    background-color: #CECECE;
+    @extend %insidebox;
+    @include appearBox(0.6s);
+    color: black;
+}
+.careersBoxes{
+    @extend %boxshadow;
+    transition: 0.3s;
+    font-family: $font;
+}
+.careersBoxes:hover{
+    transform: scale(1.10);
+    box-shadow: 0;
+    cursor: pointer;
+}
+
+
+// skemclub people
+#p25:hover{
+    @extend %skemclub;
+}
+#p75:hover{
+    @extend %skemclub;
+}
+#p85:hover{
+    @extend %skemclub;
+}
+#p125:hover{
+    @extend %skemclub;
+}
+#p145:hover{
+    @extend %skemclub;
+}
+#p155:hover{
+    @extend %skemclub;
+}
+#p175:hover{
+    @extend %skemclub;
+}
+#p235:hover{
+    @extend %skemclub;
+}
+#p143:hover{
+    @extend %skemclub;
+}
+#p201:hover{
+    @extend %skemclub;
+}
+#p171:hover{
+    @extend %skemclub;
+}
+#p161:hover{
+    @extend %skemclub;
+}
+#p191:hover{
+    @extend %skemclub;
+}
+#p134:hover{
+    @extend %skemclub;
+}
+#p232:hover{
+    @extend %skemclub;
+}
+#p46:hover{
+    @extend %skemclub;
+}
+#p45:hover{
+    @extend %skemclub;
+}
+#p256:hover{
+    @extend %skemclub;
+}
+#p23:hover{
+    @extend %skemclub;
+}
+#p12:hover{
+    @extend %skemclub;
+}
+#p166:hover{
+    @extend %skemclub;
+}
+#p210:hover{
+    @extend %skemclub;
+}
+// Screen Query(s)
+@media only screen and (min-width: 1075px){
+    .oldContainer{
+        display: grid;
+    }
+    #careers{
+        width: 1075px;
+        height: 420px;
+        grid-template-columns: repeat(5, 200px);
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 15px;
+        margin-top: 45px;
+    }
+
+}
+@media only screen and (max-width: 1075px){
+
+    #careers{
+        grid-template-rows: repeat(8, 1500px);
+        margin: 15px;
+    }
+    #logo{
+        width: 190px;
+        height: 190px;
+    }
+    .loading{
+        font-size: 34px;
+    }
+    .disclaimer{
+        font-size: 28px;
+        margin: 30px;
+    }
+    .madeBy{
+        font-size: 24px;
+    }
+    .madeBy> span{
+        font-size: 16px;
+    }
+    .careersBoxes{
+        height: 170px;
+        margin-top: 15px;
+    }
+    .backButtonStyle{
+        position: fixed;
+        left: 15px;
+        bottom: 35px;
+    }
+    .specialtyName{
+        text-align: center;
+        font-size: 48px;
+        margin-left: 0;
+        @include appearTextQuery(0.5s);
+        animation-delay: 1s;
+    }
+
+}
+
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OL-D: Interactive Gallery</title>
+    <link rel="icon" type="image/png" href="style/diamond.png"/>
+    <link rel="stylesheet" href="style/principalMenu.css">
+</head>
+<body>
+    <!-- Space for the components to preload  -->
+    <div id='backgroundCashing'>
+        <div id='bg0'></div>
+        <div id='bg1'></div>
+        <div id='bg2'></div>
+        <div id='bg3'></div>
+        <div id='bg4'></div>
+        <div id='bg5'></div>
+        <div id='bg6'></div>
+    </div>
+    <div id='app'> <!-- Space for React to render al components -->
+       <h1 class='loading' id='title1'>Bienvenidos(as)</h1>
+    </div>
+</body>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script defer type='text/babel' src='components/components.js'></script>
+</html>
